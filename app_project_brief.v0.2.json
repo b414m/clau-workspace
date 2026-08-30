@@ -1,0 +1,58 @@
+{
+  "brief_version": "0.2",
+  "project_id": "equipment-loan-app-01",
+  "domain": "app_development",
+  "constraints": {
+    "ml_allowed": false,
+    "analytics_pipeline_required": false,
+    "external_backend_required": false,
+    "offline_first": true,
+    "target_platform": "android",
+    "preferred_language": "Kotlin",
+    "storage": "local"
+  },
+  "human_intent": "Crear una aplicación móvil sencilla para gestionar préstamos de equipo, consultar disponibilidad y conservar el historial de préstamos y devoluciones.",
+  "operational_states": [
+    "AVAILABLE",
+    "LOANED"
+  ],
+  "minimum_user_capabilities": [
+    "registrar equipos",
+    "consultar la disponibilidad actual de cada equipo",
+    "prestar un equipo disponible a una persona",
+    "registrar la devolución de un equipo prestado",
+    "consultar el historial de préstamos de cada equipo"
+  ],
+  "business_rules": [
+    "sólo un equipo AVAILABLE puede ser prestado",
+    "un equipo LOANED no puede volver a prestarse hasta ser devuelto",
+    "una devolución debe cerrar el préstamo activo y volver a dejar AVAILABLE el equipo",
+    "un préstamo cerrado no puede modificarse",
+    "préstamos y devoluciones deben persistir entre cierres y nuevas aperturas de la aplicación",
+    "las acciones disponibles en la interfaz deben ser coherentes con el estado actual del equipo"
+  ],
+  "non_goals": [
+    "sincronización cloud obligatoria",
+    "autenticación multiusuario obligatoria",
+    "notificaciones push obligatorias",
+    "predicción de demanda",
+    "recomendaciones automáticas",
+    "lectura obligatoria de códigos QR o NFC"
+  ],
+  "open_design_choices": [
+    "arquitectura interna",
+    "modelo de navegación",
+    "persistencia local concreta",
+    "diseño visual",
+    "estrategia de pruebas",
+    "campos adicionales de equipo, persona o préstamo que no contradigan el brief"
+  ],
+  "acceptance_focus": [
+    "flujo funcional completo de préstamo y devolución",
+    "persistencia local verificable a través de una frontera real de almacenamiento",
+    "estado de UI consistente con el estado operativo",
+    "historial recuperable después de una nueva apertura de la aplicación",
+    "ausencia de capacidades no ejecutadas o no verificadas presentadas como verificadas"
+  ],
+  "archive_requirement": "Conservar artefactos, decisiones, propuestas descartadas, dudas, implementación, pruebas e intentos de ejecución en el orden en que ocurran."
+}
